@@ -203,7 +203,7 @@ func HTML2Text(html string) string {
 				canPrintNewline = false
 			} else if tagNameLowercase == "/a" {
 				// end of link
-				// this can happen if the link matches the badLinkHrefRE
+				// links can be empty can happen if the link matches the badLinkHrefRE
 				if len(hrefs) > 0 {
 					outBuf.WriteString(" <")
 					outBuf.WriteString(HTMLEntitiesToText(hrefs[0]))
