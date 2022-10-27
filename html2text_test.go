@@ -19,7 +19,7 @@ func TestHTML2Text(t *testing.T) {
 			So(HTML2Text(`click <a href="test"><span>here</span> or here</a>`), ShouldEqual, "click here or here <test>")
 			So(HTML2Text(`click <a href="http://bit.ly/2n4wXRs">news</a>`), ShouldEqual, "click news <http://bit.ly/2n4wXRs>")
 			So(HTML2Text(`<a rel="mw:WikiLink" href="/wiki/yet#English" title="yet">yet</a>, <a rel="mw:WikiLink" href="/wiki/not_yet#English" title="not yet">not yet</a>`), ShouldEqual, "yet </wiki/yet#English>, not yet </wiki/not_yet#English>")
-			So(HTML2Text(`click <a href="one">here<a href="two"> or here</a></a>`), ShouldEqual, "click here or here <one> <two>")
+			So(HTML2Text(`click <a href="one">here<a href="two"> or</a><span> here</span></a>`), ShouldEqual, "click here or <one> here <two>")
 		})
 
 		Convey("Inlines", func() {
